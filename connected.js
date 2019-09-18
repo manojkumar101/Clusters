@@ -2,7 +2,6 @@ const cluster = require('cluster');
 const http = require('http');
 if (cluster.isMaster) {
     const worker = cluster.fork();
-
     worker.on('listening', (address) => {
       console.log("shutdown hone wala ")
       worker.send('shutdown');
